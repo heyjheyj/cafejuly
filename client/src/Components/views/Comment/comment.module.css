@@ -1,0 +1,30 @@
+.commentform {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.commentInput {
+    padding: 5px;
+    margin: 5px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #B178DE;
+    background: var(--main--light-color);
+}
+
+.commentBtn {
+    margin: 5px;
+    width: 20%;
+    height: 52px;
+    border: none;
+    background: #B178DE40;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.commentBtn:hover {
+    background: #B178DE60;
+    cursor: pointer;
+}

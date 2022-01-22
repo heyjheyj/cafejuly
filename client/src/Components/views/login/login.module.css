@@ -1,0 +1,38 @@
+.loginform {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+    height: 250px;
+    justify-content: space-between;
+    max-width: 300px;
+    padding-top: 100px;
+}
+
+.loginform label {
+    margin-top: 10px;
+    color: var(--main--font-color)
+}
+
+.loginPage {
+    height: 100vh;
+}
+
+.button {
+    margin-top: 30px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #c8afdb;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #c8afdb10;
+}
+
+.button:hover {
+    background-color: #c8afdb20;
+}
+
+.submitBtn {
+    height: 100%;
+}

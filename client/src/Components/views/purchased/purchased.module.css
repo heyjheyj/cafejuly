@@ -1,0 +1,52 @@
+.purchased {
+    width: 80%;
+    margin: auto;
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.table {
+    text-align: center;
+}
+
+.table h2 {
+    color: var(--main--font-color);
+}
+
+.tablebody {
+    width: 100%;
+    text-align: center;
+}
+
+.tablebody > td, th {
+    border: 1px solid #a897b350;
+    text-align: center;
+    padding: 8px;
+    background-color: #B178DE40;
+    color: var(--main--font-color);
+}
+
+.tablebody > table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+ 
+.purchasedtext {
+    margin: auto;
+    width: 250px;
+    height: 55px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: 250px;
+    background-image: url('https://res.cloudinary.com/dj8b9wygu/image/upload/v1641818028/jvsiwojgewpbwrkapem4.png');
+}
+
+.detailInfo > td, th {
+    text-align: center;
+    padding-top: 5px;
+    border: 1px solid #a897b350;
+}

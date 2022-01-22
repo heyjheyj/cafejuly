@@ -1,0 +1,113 @@
+.nav {
+    width: 100%;
+    border-bottom: 1px solid #dfcdeb80;
+    position: fixed;
+    background-color: var(--main--light-color);
+    z-index: 100;
+}
+
+.navbar { 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 1200px;
+    height: 60px;
+    align-items: center;
+    z-index: 1;
+}
+
+.menuimg {
+    height: 30px;
+}
+
+.rightNav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.logoimg {
+    width: 40px;
+    margin-left: 20px;
+    transition: transform 50ms ease-in;
+}
+
+.menuimg:hover, .navimg:hover, .navhistory:hover, .logoimg:hover, .mainlogo:hover, .navimgcart:hover {
+    transform: scale(1.1)
+}
+
+.mainlogo {
+    width: 90px;
+}
+
+.guide {
+    margin-right: 10px;
+}
+
+.navimg {
+    margin-right: 5px;
+    height: 30px;
+    transition: transform 50ms ease-in;
+    cursor: pointer;
+}
+
+.navimgcart {
+    height: 30px;
+    margin-left: 10px;
+    transition: transform 50ms ease-in;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+
+.navhistory {
+    margin-left: 15px;
+    margin-right: 10px;
+    height: 30px;
+    transition: transform 50ms ease-in;
+    cursor: pointer;
+}
+
+.response {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .response {
+        display: block;
+    }
+
+    .guide {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+
+    .navimgcart {
+        margin-left: 0px;
+        height: 25px;
+    }
+    
+    .navhistory {
+        height: 25px;
+        margin-left: 0px;
+    }
+
+    .logo {
+        margin-left: 0px;
+    }
+
+    .navimg {
+        height: 25px;
+    }
+}

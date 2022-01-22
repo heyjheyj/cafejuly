@@ -1,0 +1,36 @@
+:root {
+  --main--color: #dfcdeb;
+  --main--pink-color: #ffc9e9;
+  --main--red-color: #ffc6d0;
+  --main--peach-color: #ffccaa;
+  --main--orange-color: #ffde83;
+  --main--lemon-color: #f9f871;
+
+  --main--light-color: #FFF6FF;
+  --main--dark-color: #a897b3;
+  --main--bright-color: #B178DE;
+  --main--font-color: #3B2E45;
+
+}
+
+.app {
+  width: 100%;
+  max-width: 1200px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-Width: 1200px) {
+  .app {
+    margin: auto;
+  }
+}

@@ -1,0 +1,33 @@
+.detailpage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.detail {
+    display: flex;
+    justify-content: center;
+}
+
+.productdetail {
+    width: 90%;
+    margin-top: 10px;
+}
+
+.detail h1 {
+    color: var(--main--font-color);
+}
+
+.comment {
+    padding-top: 30px;
+    width: 80%;
+    margin: auto;
+}
+
+.comments {
+    font-size: 18px;
+    font-weight: 500;
+}

@@ -1,0 +1,11 @@
+.mainImage {
+    margin: auto;
+    width: 100%;
+    height: 30%;
+    padding-top: 60px;
+}
+
+.images {
+    width: 100%;
+    object-fit: fill;
+}
