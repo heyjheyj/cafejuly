@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useEffect, useState, useCallback } from "react";
 import styles from "./landingpage.module.css";
 import Axios from "axios";

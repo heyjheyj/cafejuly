@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import styles from "./app.module.css";
 import Landingpage from "./Components/views/landingpage/landingpage";
 import Navbar from "./Components/views/navbar/navbar";
