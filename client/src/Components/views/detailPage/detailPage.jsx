@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Axios from "axios";
 import styles from "./detailPage.module.css";
 import { useParams, useNavigate } from "react-router-dom";
@@ -36,7 +36,7 @@ const DetailPage = props => {
     navigate('/user/cart', { state: request })
   };
 
-  const getProduct = async () => {
+  const getProduct = useCallback(async () => {
     await Axios.get(
       `/api/product/product_by_id?id=${productId}&type=single`
     ).then(res => {
@@ -47,9 +47,9 @@ const DetailPage = props => {
         alert("상품정보를 가져오지 못했습니다.");
       }
     });
-  };
+  }, [productId])
 
-  const getAllComments = async () => {
+  const getAllComments = useCallback(async () => {
     let data = { 
       productId: productId 
     }
@@ -65,7 +65,7 @@ const DetailPage = props => {
     })
 
     return result;
-  }
+  }, [productId])
 
   const refreshFunction = (newComment) => {
     // setComments(...comments, newComment);
@@ -80,7 +80,7 @@ const DetailPage = props => {
         setComments(result)
       })
     },
-    [setProduct]
+    [setProduct, getAllComments, getProduct]
   );
 
   return (

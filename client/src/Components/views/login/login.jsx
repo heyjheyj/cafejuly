@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import styles from "./login.module.css";
 import { useForm, Controller } from "react-hook-form";
 import { Input } from "@mui/material";
@@ -7,9 +7,11 @@ import User from '../../service/user';
 
 const Login = props => {
   const user = new User()
+  const formRef = useRef();
+  const navigate = useNavigate();
 
   const loginUserChecked = localStorage.getItem("loginUser") ? true : false;
-  const [loginUser, setLoginUser] = useState(loginUserChecked);
+  let loginUser = loginUserChecked
 
   const { control, handleSubmit } = useForm({
     defaultValues: {
@@ -22,10 +24,9 @@ const Login = props => {
     if(props.userData.isAuth) {
       navigate('/')
     }
-  }, [])
+  }, [navigate, props.userData.isAuth])
 
-  const formRef = useRef();
-  const navigate = useNavigate();
+
 
   const onSubmit = data => {
     console.log("[login]submit data:", data);

@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import styles from "./landingpage.module.css";
 import Axios from "axios";
 
 import { cookies, prices } from "./section/datas";
-
-import { useNavigate } from 'react-router-dom';
 
 import Radiobox from "./section/radiobox";
 import Checkboxs from "./section/checkbox";
@@ -17,7 +15,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const Landingpage = (props) => {
   const [products, setProducts] = useState([]);
   const [skip, setSkip] = useState(0);
-  const [limit, setLimit] = useState(12);
   const [postsize, setPostsize] = useState(0);
   const [filters, setFilters] = useState({
     cookies: [],
@@ -25,23 +22,24 @@ const Landingpage = (props) => {
   });
   const [searchValue, setSearchValue] = useState("");
 
-  const navigate = useNavigate();
+  let limit = 12;
 
-  const getProducts = async (props) => {
+  const getProducts = useCallback(async (props) => {
     Axios.post("/api/product/products", props).then(res => {
       if (res.data.success) {
         console.log("[Landingpage]products result:", res.data);
         if (props.loadmore) {
-          setProducts([...products, ...res.data.products]);
+          setProducts(() => [...products, ...res.data.products]);
         } else {
-          setProducts(res.data.products);
+          setProducts(() => res.data.products);
         }
-        setPostsize(res.data.postsize);
+        setPostsize(() => res.data.postsize);
+        console.log(postsize)
       } else {
         alert("상품 정보를 가져오는데 실패했습니다.");
       }
     });
-  }
+  }, [])
 
   useEffect(
     () => {
@@ -51,7 +49,7 @@ const Landingpage = (props) => {
       };
       getProducts(body);
     },
-    [limit, skip]
+    [limit, skip, getProducts]
   );
 
   const loadmoreHandler = () => {
@@ -112,6 +110,7 @@ const Landingpage = (props) => {
     };
     setSkip(0);
     setSearchValue(value);
+    console.log(searchValue)
     getProducts(body);
   };
 

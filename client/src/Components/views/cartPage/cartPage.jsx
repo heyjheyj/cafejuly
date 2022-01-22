@@ -6,8 +6,6 @@ import { Typography, Box, Divider } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Payments from '../../utils/payment';
 
-import { useNavigate } from 'react-router-dom';
-
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const CartPage = props => {
@@ -20,17 +18,7 @@ const CartPage = props => {
 
   const userData = props.userData;
 
-  const navigate = useNavigate()
-
-  // useEffect(() => {
-  //   if(!props.userData.isAuth) {
-  //     navigate('/')
-  //   } else {
-  //     return
-  //   }
-  // }, [])
-
-  const getCartItems = async cartItems => {
+  const getCartItems = useCallback(async cartItems => {
     const request = await Axios.get(
       `/api/product/product_by_id?id=${cartItems}&type=array`
     ).then(res => {
@@ -44,13 +32,13 @@ const CartPage = props => {
       return res.data;
     });
     return request;
-  }
+  }, [userData.cart])
 
-  const getProduct = async cartItems => {
+  const getProduct = useCallback(async cartItems => {
     const result = await getCartItems(cartItems);
     console.log(result.product);
     return result.product
-  }
+  }, [getCartItems])
 
   let totalAmount = useCallback(() => {
     let total = 0;
@@ -96,7 +84,7 @@ const CartPage = props => {
     })
   }
 
-  const cartInfo = async () => {
+  const cartInfo = useCallback(async () => {
     let cartItems = [];
 
     if (userData && userData.cart) {
@@ -111,13 +99,13 @@ const CartPage = props => {
         return;
       }
     }
-  }
+  }, [userData, getProduct])
 
   useEffect(
     () => {
       cartInfo()
     },
-    [setProducts, userData]
+    [setProducts, userData, cartInfo]
   );
 
   useEffect(

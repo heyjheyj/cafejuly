@@ -75,11 +75,14 @@ const UploadPage = props => {
     });
   };
 
-  useEffect(() => {
-    if (!props.userData.isAuth) {
-      navigate("/");
-    }
-  }, []);
+  useEffect(
+    () => {
+      if (!props.userData.isAuth) {
+        navigate("/");
+      }
+    },
+    [navigate, props.userData.isAuth]
+  );
 
   const refreshImages = newImages => {
     setImage(newImages);

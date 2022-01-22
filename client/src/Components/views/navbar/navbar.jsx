@@ -14,8 +14,6 @@ import { Box } from '@mui/system';
 const Navbar = (props) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
-
-  const [cartItems, setCartItems] = useState();
   const user = new User();
 
   console.log('[Navbar]props:', props.userData)

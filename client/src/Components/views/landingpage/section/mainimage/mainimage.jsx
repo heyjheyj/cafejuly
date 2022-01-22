@@ -49,7 +49,11 @@ const Mainimage = props => {
         {images
           ? images.map((image, index) =>
               <div key={index}>
-                <img className={styles.images} src={`${image}`} />
+                <img
+                  className={styles.images}
+                  src={`${image}`}
+                  alt="carousel"
+                />
               </div>
             )
           : ""}

@@ -16,11 +16,14 @@ const Register = props => {
   const navigate = useNavigate();
   const user = new User();
 
-  useEffect(() => {
-    if (props.userData.isAuth) {
-      navigate("/");
-    }
-  }, []);
+  useEffect(
+    () => {
+      if (props.userData.isAuth) {
+        navigate("/");
+      }
+    },
+    [navigate, props.userData.isAuth]
+  );
 
   const onSubmit = data => {
     console.log("data", data);

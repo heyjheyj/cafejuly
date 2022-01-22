@@ -10,9 +10,11 @@ const ProductImages = ({ product }) => {
   console.log(product.images);
 
   useEffect(
-    async () => {
-      let newImages = await product.images;
-      setImages(newImages);
+    () => {
+      queueMicrotask(async () => {
+        let newImages = await product.images;
+        setImages(newImages);
+      });
     },
     [product, images]
   );
@@ -33,7 +35,11 @@ const ProductImages = ({ product }) => {
         {images
           ? images.map((image, index) =>
               <div key={index}>
-                <img className={styles.images} src={`${image}`} />
+                <img
+                  className={styles.images}
+                  src={`${image}`}
+                  alt="carouselimg"
+                />
               </div>
             )
           : ""}

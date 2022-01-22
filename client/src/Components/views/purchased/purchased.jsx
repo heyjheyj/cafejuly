@@ -27,7 +27,7 @@ const Purchased = ({ userData }) => {
       if(!userData.isAuth) {
         navigate('/')
       }
-    }, [])
+    }, [navigate, userData.isAuth])
 
   return (
   <>

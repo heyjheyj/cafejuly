@@ -10,7 +10,6 @@ import UploadPage from "./Components/views/uploadPage/uploadPage";
 import DetailPage from "./Components/views/detailPage/detailPage";
 import CartPage from "./Components/views/cartPage/cartPage";
 import Purchased from "./Components/views/purchased/purchased";
-
 import User from './Components/service/user'
 
 import { useEffect, useState } from "react";
