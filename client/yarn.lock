@@ -9949,7 +9949,7 @@ react-is@^17.0.1, react-is@^17.0.2:
 
 react-paypal-express-checkout@^1.0.5:
   version "1.0.5"
-  resolved "https://registry.npmjs.org/react-paypal-express-checkout/-/react-paypal-express-checkout-1.0.5.tgz"
+  resolved "https://registry.yarnpkg.com/react-paypal-express-checkout/-/react-paypal-express-checkout-1.0.5.tgz#8a2a24dce92551d32daa55a43e6cdcdafb6fec15"
   integrity sha512-J2s/C9ftuG/ja1/QelGSg4veXij5p9zNhOqr2wTw6ERprWpHbQm/JNx/U43G5aiqAnnoFxlKsFl+t1nAOqbw6w==
   dependencies:
     babel-runtime "^6.6.1"
