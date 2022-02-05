@@ -6,7 +6,7 @@
 ### Heroku 배포주소 : https://cafejuly.herokuapp.com/
 - test계정 - id: test12@gamil.com, pw: test12
 
-![GIF]('/client/public/images/ezgif.com-gif-maker (3).gif')
+![GIF](./client/public/images/ezgif.com-gif-maker (3).gif)
 
 ## 현재 : 아주 다양한 버그들을 수정중입니다;
 
