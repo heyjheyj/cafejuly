@@ -6,5 +6,7 @@
 ### Heroku 배포주소 : https://cafejuly.herokuapp.com/
 - test계정 - id: test12@gamil.com, pw: test12
 
+## 현재 : 아주 다양한 버그들을 수정중입니다;
+
 ## Error Handling Log
 작성중
