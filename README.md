@@ -9,7 +9,7 @@
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/90097736/152655547-1b4aec90-1e39-4ae9-aea1-fb7f9e7e7ac4.gif)
 
 
-## 현재 : 아주 다양한 버그들을 수정중입니다;
+## 현재 : 어마무시하게 많은 버그들을 수정중입니다;
 
 ## Error Handling Log
 작성중
