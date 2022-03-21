@@ -7,8 +7,6 @@ const SingleComment = ({ user, productId, comment, refreshFunction }) => {
     const [ reply, setReply ] = useState(false);
     const [ value, setValue ] = useState("")
 
-    console.log('[singleComment]user:', user)
-    console.log('[singleComment]comment:', comment)
     const navigate = useNavigate()
 
     const onClickReplyOpen = () => {
@@ -30,7 +28,6 @@ const SingleComment = ({ user, productId, comment, refreshFunction }) => {
     
         Axios.post('/api/comment/saveComment', variables).then((res) => {
           if (res.data.success) {
-            console.log(res.data)
             refreshFunction(res.data.comments)
             setReply(false);
           } else {

@@ -9,7 +9,6 @@ import Payments from '../../utils/payment';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 const CartPage = props => {
-  console.log('[cartPage]props', props)
 
   const [products, setProducts] = useState([]);
   const [total, setTotal] = useState(0);
@@ -36,7 +35,6 @@ const CartPage = props => {
 
   const getProduct = useCallback(async cartItems => {
     const result = await getCartItems(cartItems);
-    console.log(result.product);
     return result.product
   }, [getCartItems])
 
@@ -64,7 +62,6 @@ const CartPage = props => {
       }
       return res.data;
     });
-    console.log(request);
     window.location.reload();
   };
 
@@ -75,7 +72,6 @@ const CartPage = props => {
     }
     Axios.post('/api/users/successBuy', body).then(res => {
       if(res.data.success) {
-        console.log('[cart]purchased items:', res.data.cartData)
         setPurchaseSuccess(true)
         setProducts(res.data.cartData)
       } else {
@@ -93,7 +89,6 @@ const CartPage = props => {
           cartItems.push(item.id);
         });
         const product = await getProduct(cartItems);
-        console.log(product)
         setProducts(product)
       } else {
         return;

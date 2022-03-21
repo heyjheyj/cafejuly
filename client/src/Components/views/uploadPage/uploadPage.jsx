@@ -17,8 +17,6 @@ const cookies = [
 ];
 
 const UploadPage = props => {
-  console.log("[uploadPage]props", props);
-
   const navigate = useNavigate();
 
   const [productname, setProductname] = useState("");
@@ -28,23 +26,19 @@ const UploadPage = props => {
   const [image, setImage] = useState([]);
 
   const changeCookies = e => {
-    console.log(e.currentTarget.value);
     setCookie(e.currentTarget.value);
   };
 
   const changeProductName = e => {
     setProductname(e.currentTarget.value);
-    console.log("product name changed:", e.currentTarget.value);
   };
 
   const changeProductDescription = e => {
     setDescription(e.currentTarget.value);
-    console.log("product name changed:", e.currentTarget.value);
   };
 
   const changeProductPrice = e => {
     setPrice(e.currentTarget.value);
-    console.log("product name changed:", e.currentTarget.value);
   };
 
   const onSubmit = e => {
@@ -62,11 +56,8 @@ const UploadPage = props => {
       images: image
     };
 
-    console.log(product);
-
     Axios.post("/api/product", product).then(res => {
       if (res.data.success) {
-        console.log(res.data);
         alert("상품을 업로드 했습니다.");
         navigate("/");
       } else {
@@ -77,11 +68,11 @@ const UploadPage = props => {
 
   useEffect(
     () => {
-      if (!props.userData.isAuth) {
+      if (props.userData === undefined) {
         navigate("/");
       }
     },
-    [navigate, props.userData.isAuth]
+    [navigate, props.userData]
   );
 
   const refreshImages = newImages => {

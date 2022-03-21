@@ -21,7 +21,6 @@ const Mainimage = props => {
   const getImages = async () => {
     const request = await Axios.get("api/images/getMainImages").then(res => {
       if (res.data.success) {
-        console.log(res.data.arr1);
         return res.data.arr1;
       } else {
         console.log("에러");
@@ -36,7 +35,6 @@ const Mainimage = props => {
         let arr = await getImages();
         let arr2 = Object.values(arr);
         const data = arr2.splice(0, 3);
-        console.log(data);
         setImages(data);
       });
     },

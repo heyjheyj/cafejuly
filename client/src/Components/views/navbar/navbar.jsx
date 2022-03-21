@@ -16,8 +16,6 @@ const Navbar = (props) => {
   const open = Boolean(anchorEl);
   const user = new User();
 
-  console.log('[Navbar]props:', props.userData)
-
   const logout = () => {
     user.logout();
   };

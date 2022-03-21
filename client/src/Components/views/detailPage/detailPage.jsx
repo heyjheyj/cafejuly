@@ -20,11 +20,8 @@ const DetailPage = props => {
   const [comments, setComments] = useState([]);
 
   const navigate = useNavigate();
-  // console.log(productId);
 
   const addItemToCart = (id, quantities) => {
-    console.log("add to cart:", id);
-    console.log("add to cart:", quantities);
     
     let body = {
       productId: id,
@@ -32,7 +29,6 @@ const DetailPage = props => {
     };
 
     const request = user.addToCart(body)
-    console.log('[Detail Page]add to cart:', request)
     navigate('/user/cart', { state: request })
   };
 
@@ -41,7 +37,6 @@ const DetailPage = props => {
       `/api/product/product_by_id?id=${productId}&type=single`
     ).then(res => {
       if (res.data.product) {
-        console.log(res.data.product[0]);
         setProduct(res.data.product[0]);
       } else {
         alert("상품정보를 가져오지 못했습니다.");
@@ -56,7 +51,6 @@ const DetailPage = props => {
 
     const result = await Axios.post('/api/comment/getComments', data).then(res => {
       if(res.data.success) {
-        console.log('[detail Page]get All Comments', res.data.comments)
         const datas = res.data.comments
         return datas
       } else {
@@ -68,7 +62,6 @@ const DetailPage = props => {
   }, [productId])
 
   const refreshFunction = (newComment) => {
-    // setComments(...comments, newComment);
     setComments(comments.concat(newComment))
   }
 

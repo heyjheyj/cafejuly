@@ -3,9 +3,7 @@ import Axios from "axios";
 class User {
   login(data) {
     Axios.post("/api/users/login", data).then((res) => {
-      console.log("[login]login res:", res);
       if (res.data.loginSuccess) {
-        console.log(res.data.userId);
         window.localStorage.setItem("userId", res.data.userId);
         window.location.reload();
       } else if (res.data.loginSuccess === false) {
@@ -19,7 +17,6 @@ class User {
   logout() {
     Axios.get("/api/users/logout").then((res) => {
       if (res.data.success) {
-        console.log("logout succeded: ", res.data);
         window.localStorage.removeItem("userId");
         window.location.reload();
       } else {
@@ -31,7 +28,6 @@ class User {
   register(body) {
     Axios.post("/api/users/register", body).then((res) => {
       if (res.data.success) {
-        console.log(res.data);
         return res.data;
       } else {
         alert("등록에 실패했습니다.");
@@ -42,8 +38,7 @@ class User {
   addToCart(body) {
     Axios.post("/api/users/addToCart", body).then((res) => {
       if (res.data) {
-        console.log("[Auth]add to cart:", res.data);
-        // window.location.reload();
+        window.location.reload();
         return res.data;
       } else {
         alert("장바구니에 넣지 못했습니다.");
@@ -53,7 +48,6 @@ class User {
 
   async getUser() {
     const result = await Axios.get("/api/users/auth").then((res) => {
-      console.log("[Auth]get userData:", res.data);
       if (res.data) {
         return res.data;
       } else {

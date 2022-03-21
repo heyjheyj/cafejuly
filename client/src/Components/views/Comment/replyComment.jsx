@@ -12,12 +12,6 @@ const ReplyComment = ({
   const [commentCounts, setCommentCounts] = useState();
   const [openReply, setOpenReply] = useState(false);
 
-  console.log("[Reply]comments:", comments);
-  console.log("[Reply]productId", productId);
-  console.log("[Reply]parentCommentId", parentCommentId);
-  console.log("[Reply]refreshFunction", refreshFunction);
-  console.log("[Reply]commentCount", commentCounts);
-
   useEffect(
     () => {
       let commentReplyCount = 0;
@@ -57,7 +51,6 @@ const ReplyComment = ({
   };
 
   const onHandleChange = () => {
-    console.log("open Reply", openReply);
     setOpenReply(!openReply);
   };
 

@@ -5,16 +5,13 @@ import { Typography } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 
 const Purchased = ({ userData }) => {
-    console.log('[Purchased Pages]userData:', userData)
     const navigate = useNavigate()
 
     const renderHistory = 
       userData.history.length > 0 &&
         userData.history.map((item, index) => {
             let d = new Date(item.dataOfPurchase)
-            console.log(d)
             let result = d.toLocaleString()
-            console.log(result)
             return(
               <tr key={index} className={styles.detailInfo}>
                 <td>{item.name}</td>

@@ -14,10 +14,6 @@ const Comment = ({ user, comments, refreshFunction, productId }) => {
     setCommentvalue(e.currentTarget.value)
   }
 
-  console.log('[Comment]comments:',comments)
-  console.log('[Comment]user', user)
-  console.log('[Comment]productId', productId )
-
   const onSubmit = (e) => {
     e.preventDefault();
     if(!user) {
@@ -33,7 +29,6 @@ const Comment = ({ user, comments, refreshFunction, productId }) => {
     Axios.post('/api/comment/saveComment', variables).then((res) => {
       if (res.data.success) {
         refreshFunction(res.data.success);
-        console.log(res.data)
       } else {
         alert('코멘트를 저장하지 못했습니다.')
       }

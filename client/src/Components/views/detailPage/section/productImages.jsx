@@ -7,7 +7,6 @@ import styles from "./productImages.module.css";
 
 const ProductImages = ({ product }) => {
   const [images, setImages] = useState([]);
-  console.log(product.images);
 
   useEffect(
     () => {

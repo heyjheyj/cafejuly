@@ -29,7 +29,6 @@ const Radiobox = ({prices, handleFilter}) => {
     )
 
   const handleChange = e => {
-    console.log(e.target.value)
     handleFilter(e.target.value);
   };
 

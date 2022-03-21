@@ -29,14 +29,12 @@ const Landingpage = (props) => {
   const getProducts = useCallback(async (props) => {
     Axios.post("/api/product/products", props).then(res => {
       if (res.data.success) {
-        console.log("[Landingpage]products result:", res.data);
         if (props.loadmore) {
           setProducts(() => [...products, ...res.data.products]);
         } else {
           setProducts(() => res.data.products);
         }
         setPostsize(() => res.data.postsize);
-        console.log(postsize)
       } else {
         alert("상품 정보를 가져오는데 실패했습니다.");
       }
@@ -62,7 +60,6 @@ const Landingpage = (props) => {
       limit: limit,
       loadmore: true
     };
-    console.log('loadmore:', body)
 
     getProducts(body);
     setSkip(Skip);
@@ -112,7 +109,6 @@ const Landingpage = (props) => {
     };
     setSkip(0);
     setSearchValue(value);
-    console.log(searchValue)
     getProducts(body);
   };
 

@@ -1,4 +1,6 @@
 /client/node_modules
 /node_modules
 
+/clinet/build
+
 /server/config/development.js

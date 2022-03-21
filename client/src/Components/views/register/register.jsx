@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 import User from "../../service/user";
 
 const Register = props => {
-  console.log("[register]props:", props);
-
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const formRef = useRef();
   const password = useRef();
@@ -26,8 +24,6 @@ const Register = props => {
   );
 
   const onSubmit = data => {
-    console.log("data", data);
-
     let body = {
       name: data.name,
       email: data.email,
@@ -35,7 +31,6 @@ const Register = props => {
     };
 
     user.register(body);
-    console.log("after register");
     formRef.current.reset();
     navigate("/login");
   };

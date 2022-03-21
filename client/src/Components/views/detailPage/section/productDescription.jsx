@@ -36,7 +36,6 @@ const data = [
 const ProductDescription = ({ product, addItemToCart }) => {
   const [quantities, setQuantities] = useState();
   const [showInput, setShowInput] = useState(false);
-  console.log(product);
 
   const onAddToCart = () => {
     addItemToCart(product._id, quantities);
@@ -51,14 +50,11 @@ const ProductDescription = ({ product, addItemToCart }) => {
       setShowInput(true);
     } else {
       setShowInput(false);
-      console.log(input);
       setQuantities(input);
     }
   };
 
-  const select = e => {
-    console.log(e);
-  };
+  const select = e => {};
 
   return (
     <section

@@ -29,7 +29,6 @@ const Login = props => {
 
 
   const onSubmit = data => {
-    console.log("[login]submit data:", data);
     user.login(data)
     if(loginUser === true) {
       window.localStorage.setItem("loginUser", data.id);

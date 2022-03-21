@@ -3,8 +3,6 @@ import styles from "./userCards.module.css";
 import { Button } from "@mui/material";
 
 const UserCards = ({ products, removeProduct }) => {
-  console.log("[userCartData]products", products);
-
   const renderCartImage = images => {
     if (images.length > 0) {
       let image = images[0];

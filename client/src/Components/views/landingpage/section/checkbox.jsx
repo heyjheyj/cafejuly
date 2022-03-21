@@ -22,11 +22,7 @@ const Checkboxs = ({ lists, handleFilter }) => {
   }
 
   const handleToggle = listId => {
-    console.log(listId);
-
-    // 전체 checked된 state에서 현재 누른 checkbox가 있다면
     const currentIndex = checked.indexOf(listId);
-    console.log("checkedIndex:", currentIndex);
 
     let newChecked = [...checked];
     if (currentIndex === -1) {
@@ -35,10 +31,7 @@ const Checkboxs = ({ lists, handleFilter }) => {
       newChecked.splice(currentIndex, 1);
     }
 
-    console.log("newChecked:", newChecked);
     setChecked(newChecked);
-    // 없다면 state에 넣어준다.
-    console.log(checked);
     handleFilter(newChecked);
   };
 

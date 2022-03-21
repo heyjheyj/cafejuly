@@ -10,7 +10,6 @@ const ImageUpload = props => {
   const [images, setImages] = useState([]);
 
   const dropHandler = async files => {
-    console.log("files:", files);
     const uploaded = await imageuploader.upload(files);
     setImages([...images, uploaded]);
     props.refreshImages([...images, uploaded]);
@@ -36,10 +35,8 @@ const ImageUpload = props => {
 
   const onDeleteImage = image => {
     const currentIndex = images.indexOf(image);
-    console.log("currentIndex:", currentIndex);
 
     let newImages = [...images];
-    console.log(newImages);
     newImages.splice(currentIndex, 1);
     setImages(newImages);
     props.refreshImages(newImages);
