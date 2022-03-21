@@ -11,12 +11,12 @@
 
 ## 현재 : 어마무시하게 많은 버그들을 수정중입니다;
 
-## Error Handling Log
+# Error Handling Log
 
-### 12월 23일 React Hook Form 유효성 체크
+## 12월 23일 React Hook Form 유효성 체크
 register page에서 react-hook-form을 이용한 유효성 체크를 써보기로 했다.
 
-#### 1. Apply Validation
+### 1. Apply Validation
 
 - 공식사이트를 보면 유효성 체크 규칙을 7가지(required, min, max, minLength, maxLength, pattern, validata) 제공한다고 명시
 - 아래 예제는 4개의 input 중 3개에 대해 유효성 체크 적용
@@ -41,7 +41,7 @@ export default function App() {
 }
 ```
 
-#### 2. 내 프로젝트에 적용하기
+### 2. 내 프로젝트에 적용하기
 
 ```jsx
 const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -124,8 +124,8 @@ const onSubmit = data => {
 - useForm > watch : 특정 input을 감시하고 input값을 리턴하는 함수. 프로젝트 안에서는 password와 password confirm이 같은 값인지 확인하기 위해 사용
 - useForm > formState error : field값이 비어있거나 유효성 체크에 걸린다면 errormessage를 보여주도록 설정
 
-### 12월 24일 Mongoose 이용하기
-#### 1. Mongoose 설치 및 이용
+## 12월 24일 Mongoose 이용하기
+### 1. Mongoose 설치 및 이용
 
 - MongoDB를 이용하기 위해서는 mongoose, node.js를 설치해야 한다.
 
@@ -139,7 +139,7 @@ $ npm install mongoose --save
 const mongoose = require('mongoose')
 ```
 
-#### 2. Mongoose Schema 이용하기
+### 2. Mongoose Schema 이용하기
 
 - Schema를 만들 때 type 키값으로 줄 수 있는 속성은 String, Number, Date, Buffer, Boolean, Mixed, ObjectId, Array, Decimal128, Map, Schema이 있다.
 - type 속송 외에도 추가 속성을 줄 수 있다(required, default, select, validate, get, set, alias, immutable)
@@ -179,10 +179,10 @@ const User = mongoose.model("User", userSchema);
 module.exports = { User };
 ```
 
-### 12월 27일 리덕스를 쓸 것인가
+## 12월 27일 리덕스를 쓸 것인가
 - 이전 프로젝트에서는 Redux를 사용해 유저 관리를 했다. 컴포넌트들의 상태 관련 로직을 따로 분리시켜 관리할 수 있고, 글로벌 상태 관리도 쉽게 할 수 있기 때문이다.
 
-#### 1. 리덕스를 사용하는게 마냥 좋을까?
+### 1. 리덕스를 사용하는게 마냥 좋을까?
 - 일단 리덕스를 사용하기 위해서는 액션타입 정의, 액션함수 정의, 리듀서, 스토어 등 기본적으로 만들어야 하는 파일들이 많다.
 
 ```jsx
@@ -299,7 +299,7 @@ ReactDOM.render(
 
 - 특히 프로젝트가 작은 단위인 경우 리덕스를 사용하면 오히려 신경써야 할 것들이 더 많아진다. 동내뒷산 가는데 산악 장비 다 챙겨 가는 느낌;;
 
-#### 2. 컴포넌트 내에서 State관리하기로 결정
+### 2. 컴포넌트 내에서 State관리하기로 결정
 
 - 혼자 하는 프로젝트이고 상태관리가 필요한 것은 유저뿐이니, 컴포넌트 내에서 State를 관리하기로 했다.
 - app.jsx 파일에서 유저 상태를 관리하고 나머지 컴포넌트들은 app 컴포넌트로 부터 받은 props를 이용하는 것으로 정리.
@@ -339,7 +339,7 @@ function App() {
 }
 ```
 
-### 12월 29일 웹요청 취소🧹
+## 12월 29일 웹요청 취소🧹
 <img width="558" alt="untounted" src="https://user-images.githubusercontent.com/90097736/159210538-3cc28762-4d12-42d4-acd1-521376b5f408.png">
 - 컴포넌트가 렌더링 될 때 Axios로 데이터를 가져와 set함수를 업데이트 하는 로직을 구현했는데, 메모리 누수가 발생한다는 오류
 - 해결방법은 총 3가지가 있는 것으로 확인
@@ -398,7 +398,7 @@ return () => {
     abortController.abort()
 ```
 
-### 12월 30일 라이프사이클
+## 12월 30일 라이프사이클
 
 기능 구현에만 집중하며 개발을 하다보니.. 처리해야할 에러 메시지가 산더미다.
 특히 제일 문제는 useEffect dependency였는데, 에러 메시지에서 권고대로 dependency를 넣어주면 무한 렌더링이 발생한다.
@@ -439,12 +439,12 @@ useEffect(
   );
 ```
 
-### 1월 2일 비동기 처리
+## 1월 2일 비동기 처리
 <img width="457" alt="스크린샷 2022-01-14 16 14 01" src="https://user-images.githubusercontent.com/90097736/159211012-ba182f67-2cb9-4dfd-9475-cf7f4b691c37.png">
 아직도 비동기 처리가 미숙하다..ㅜㅜ
 차라리 이번 기회에 제대로 정리를 하고 가려고 한다.
 
-#### 1. 자바스크립트 엔진은 Single Thread다.
+### 1. 자바스크립트 엔진은 Single Thread다.
 따라서 동시에 두 가지 일을 처리할 수 없고, 한 번에 하나의 작업만이 가능하다. 
 그래서 동기적 방식이 아닌 비동기(asynchronous)로 작업을 처리한다. setTimeout함수 예가 대표적이다.
 
@@ -464,7 +464,7 @@ console.log('b')
 // x
 ```
 
-#### 2. 코드 실행 순서
+### 2. 코드 실행 순서
  - ‘a’가 콘솔에 log한다.
  - 3초 뒤 콘솔에 log하는 함수를 실행하기로 약속
  - 약속한 함수는 web api가 기억
@@ -472,7 +472,7 @@ console.log('b')
  - 3초 뒤 web api는  큐(queue)에 ‘x’를 log하는 함수를 보낸다.
  - 이벤트루프는 큐(FIFO)에 들어오는 순서대로 스택(LIFO)으로 보내 실행되도록 한다.
 
-#### 3. Promise
+### 3. Promise
 
  - Promise는 ES6에서 비동기 처리를 다루기 위한 객체다. 서버와 통신을 하는 함수들(axios, fetch 등)은 기본적으로 비동기적으로 실행된다고 봐야 한다.
  - 콘솔에서 ‘pending(대기)’ 결과를 보지 않기 위해서는?
