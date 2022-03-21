@@ -5,6 +5,7 @@
 ### 주요 기능: 상품등록, 장바구니, 결제, 구매히스토리 관리, 로그인/로그아웃/Authentication/회원가입, 종류별/가격별 필터, 상품 검색기능 등
 ### Heroku 배포주소 : https://cafejuly.herokuapp.com/
 - test계정 - id: test12@gamil.com, pw: test12
+- paypal test - id: sb-gsvlx10983735@personal.example.com, pw: asdfqwer
 
 ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/90097736/152655547-1b4aec90-1e39-4ae9-aea1-fb7f9e7e7ac4.gif)
 
