@@ -16,23 +16,27 @@ const Register = props => {
 
   useEffect(
     () => {
-      if (props.userData.isAuth) {
+      if (props.userData?.isAuth === true) {
         navigate("/");
       }
     },
-    [navigate, props.userData.isAuth]
+    [navigate, props.userData]
   );
 
-  const onSubmit = data => {
+  const onSubmit = async (data) => {
     let body = {
       name: data.name,
       email: data.email,
       password: data.password
     };
 
-    user.register(body);
-    formRef.current.reset();
-    navigate("/login");
+    let result = await user.registerUser(body);
+    if (result === true) {
+      formRef.current.reset();
+      navigate("/login");
+    } else {
+      alert('회원가입에 실패했습니다.')
+    }
   };
 
   return (
@@ -100,13 +104,7 @@ const Register = props => {
             <p>The passwords do not match</p>}
         </section>
 
-        <div className={styles.submit}>
-          <img
-            alt="signup"
-            className={styles.submitBtn}
-            src="/images/signup.gif"
-          />
-        </div>
+        <input type="submit" className={styles.submit} onSubmit={onSubmit} />
       </form>
     </section>
   );

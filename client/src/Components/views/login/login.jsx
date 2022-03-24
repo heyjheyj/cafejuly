@@ -21,12 +21,10 @@ const Login = props => {
   });
 
   useEffect(() => {
-    if(props.userData.isAuth) {
+    if(props.userData?.isAuth === true) {
       navigate('/')
     }
-  }, [navigate, props.userData.isAuth])
-
-
+  }, [navigate, props.userData])
 
   const onSubmit = data => {
     user.login(data)

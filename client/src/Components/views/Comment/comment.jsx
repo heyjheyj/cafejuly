@@ -21,7 +21,7 @@ const Comment = ({ user, comments, refreshFunction, productId }) => {
       navigate('/login')
     }
     const variables = {
-      writer: user._id,
+      writer: user?._id,
       productId: productId,
       content: commentvalue,
     }
@@ -36,12 +36,10 @@ const Comment = ({ user, comments, refreshFunction, productId }) => {
     setCommentvalue("");
   }
 
-
   return (
     <>
-      {/*  Comment Lists */}
       {comments && comments.map((comment, index) => (
-        !comment.responseTo ?
+        comment?.responseTo ? "" :
         <Fragment key={index}>
           <SingleComment 
             refreshFunction={refreshFunction} 
@@ -58,9 +56,8 @@ const Comment = ({ user, comments, refreshFunction, productId }) => {
             comments={comments} 
             productId={productId}
           />
-        </Fragment> : ""))}
+        </Fragment>))}
 
-      {/* Root Comment Form */}
       <form className={styles.commentform} onSubmit={onSubmit}>
         <textarea
           className={styles.commentInput}

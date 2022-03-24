@@ -31,7 +31,7 @@ const CartPage = props => {
       return res.data;
     });
     return request;
-  }, [userData.cart])
+  }, [userData])
 
   const getProduct = useCallback(async cartItems => {
     const result = await getCartItems(cartItems);
@@ -48,7 +48,7 @@ const CartPage = props => {
   }, [products])
 
   const removeProduct = async id => {
-    const request = await Axios.get(
+    await Axios.get(
       `/api/users/removeFromCart?id=${id}`
     ).then(res => {
       if (res.data.cart) {

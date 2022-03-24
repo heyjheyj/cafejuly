@@ -23,18 +23,19 @@
     border: none;
     background-color: var(--main--light-color);
     border-bottom: 1px solid gray;
-    font-size: 15px;
+    font-size: 20px;
     padding-left: 5px;
 }
 
 .inputfield > label {
     color: var(--main--font-color);
     margin-top: 10px;
+    font-size: 12px;
 }
 
 .inputfield > input::placeholder {
-    color: lightgray;
-    font-size: 15px;
+    color: rgb(232, 232, 232);
+    font-size: 20px;
 }
 
 .registerform p {
@@ -48,6 +49,7 @@
     border-radius: 5px;
     border: 1px solid #c8afdb;
     display: flex;
+    background-color: transparent;
     justify-content: center;
     cursor: pointer;
 }

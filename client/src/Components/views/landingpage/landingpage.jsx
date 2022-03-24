@@ -27,7 +27,7 @@ const Landingpage = (props) => {
   let limit = 12;
 
   const getProducts = useCallback(async (props) => {
-    Axios.post("/api/product/products", props).then(res => {
+    await Axios.post("/api/product/products", props).then(res => {
       if (res.data.success) {
         if (props.loadmore) {
           setProducts(() => [...products, ...res.data.products]);

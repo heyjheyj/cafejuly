@@ -1,8 +1,8 @@
 import Axios from "axios";
 
 class User {
-  login(data) {
-    Axios.post("/api/users/login", data).then((res) => {
+  async login(data) {
+    const result = await Axios.post("/api/users/login", data).then((res) => {
       if (res.data.loginSuccess) {
         window.localStorage.setItem("userId", res.data.userId);
         window.location.reload();
@@ -12,10 +12,11 @@ class User {
         alert("로그인에 실패했습니다.");
       }
     });
+    return result;
   }
 
-  logout() {
-    Axios.get("/api/users/logout").then((res) => {
+  async logout() {
+    const result = await Axios.get("/api/users/logout").then((res) => {
       if (res.data.success) {
         window.localStorage.removeItem("userId");
         window.location.reload();
@@ -23,27 +24,32 @@ class User {
         alert("로그아웃에 실패했습니다.");
       }
     });
+    return result;
   }
 
-  register(body) {
-    Axios.post("/api/users/register", body).then((res) => {
+  async registerUser(body) {
+    const result = await Axios.post("/api/users/register", body).then((res) => {
       if (res.data.success) {
-        return res.data;
+        return res.data.success;
       } else {
         alert("등록에 실패했습니다.");
       }
     });
+    return result;
   }
 
-  addToCart(body) {
-    Axios.post("/api/users/addToCart", body).then((res) => {
-      if (res.data) {
-        window.location.reload();
-        return res.data;
-      } else {
-        alert("장바구니에 넣지 못했습니다.");
+  async addToCart(body) {
+    const result = await Axios.post("/api/users/addToCart", body).then(
+      (res) => {
+        if (res.data) {
+          window.location.reload();
+          return res.data;
+        } else {
+          alert("장바구니에 넣지 못했습니다.");
+        }
       }
-    });
+    );
+    return result;
   }
 
   async getUser() {

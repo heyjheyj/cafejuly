@@ -31,7 +31,7 @@ const ReplyComment = ({
       (comment, index) =>
         comment.responseTo
           ? comment.responseTo === parentCommentId &&
-            <div className={styles.replysection}>
+            <div className={styles.replysection} key={index}>
               <SingleComment
                 refreshFunction={refreshFunction}
                 comment={comment}

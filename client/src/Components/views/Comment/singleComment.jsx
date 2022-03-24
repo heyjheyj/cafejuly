@@ -20,7 +20,7 @@ const SingleComment = ({ user, productId, comment, refreshFunction }) => {
           navigate('/login')
         }
         const variables = {
-          writer: user._id,
+          writer: user?._id,
           productId: productId,
           content: value,
           responseTo: comment._id

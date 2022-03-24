@@ -8,8 +8,8 @@ const Purchased = ({ userData }) => {
     const navigate = useNavigate()
 
     const renderHistory = 
-      userData.history.length > 0 &&
-        userData.history.map((item, index) => {
+      userData?.history.length > 0 &&
+        userData?.history.map((item, index) => {
             let d = new Date(item.dataOfPurchase)
             let result = d.toLocaleString()
             return(
@@ -21,10 +21,10 @@ const Purchased = ({ userData }) => {
               </tr> )})
 
     useEffect(() => {
-      if(!userData.isAuth) {
+      if(userData?.isAuth === undefined) {
         navigate('/')
       }
-    }, [navigate, userData.isAuth])
+    }, [navigate, userData])
 
   return (
   <>
@@ -38,7 +38,6 @@ const Purchased = ({ userData }) => {
         </Typography>
       </div>
     <br />
-
       <table className={styles.tablebody}>
         <thead>
             <tr>
@@ -53,7 +52,7 @@ const Purchased = ({ userData }) => {
         </tbody>
       </table>
 
-      {userData.history.length === 0  && 
+      {userData?.history.length === 0  && 
         <div className={styles.emptycart}>
           <Typography variant="body1" sx={{ color: "gray", mt: 1 }}>
             No Purchased History
